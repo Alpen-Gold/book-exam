@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Test Project</title>
+
+    <!-- bootstrap link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+
+    <!-- link-css -->
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- font text google  -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- icon link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <nav class="container-fluid">
+      <div class="mt-2">
+        <div class="d-flex align-items-center">
+          <i class="fa-solid fa-bars all-button me-3"></i>
+          <input
+            type="text"
+            class="w-100 form-control"
+            placeholder="Search . . . "
+            id="search"
+          />
+
+          <button class="all-button" onclick="search()">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+
+          <i class="fa-regular fa-bell fa-shake fs-5 mx-3"></i>
+
+          <img
+            src="./img/5255941339600767883_121.jpg"
+            alt=""
+            class="header-img"
+          />
+        </div>
+      </div>
+    </nav>
+
+    <div
+      class="d-flex align-items-center justify-content-between my-3 container-fluid"
+    >
+      <h1>Products</h1>
+
+      <button class="all-button" onclick="postModal()">
+        <i class="fa-solid fa-plus"></i> New ebook
+      </button>
+    </div>
+
+    <div
+      class="container-fluid d-flex align-items-center justify-content-between"
+    >
+      <ul class="nav nav-tabs">
+        <li class="nav-item" onclick="alls()">
+          <a class="nav-link active" aria-current="page" href="#">all</a>
+        </li>
+        <li class="nav-item" onclick="published()">
+          <a class="nav-link active" aria-current="page" href="#">Published</a>
+        </li>
+
+        <li class="nav-item" onclick="draft()">
+          <a class="nav-link active" aria-current="page" href="#">Draft</a>
+        </li>
+      </ul>
+
+      <div>
+        <i class="fa-solid fa-bars all-button" onclick="lineCard()"></i>
+        <i class="fa-solid fa-border-all all-button" onclick="tableCard()"></i>
+      </div>
+    </div>
+
+    <div class="container px-2">
+      <div class="row" id="cardsBook">
+        <!-- <div class="wrapper p-3 col-12 col-sm-6 col-xl-4">
+          <div class="card p-3">
+            <img
+              src="https://www.thebookseller.com/AcuCustom/Sitename/DAM/479/The_final_print_edition_of_The_Happy_Reader.jpg"
+              alt=""
+              class="book-foto-product"
+            />
+
+            <ul class="p-0 ul-list d-flex align-items-center">
+              <li class="d-flex align-items-center bg-success">
+                <p class="fs-1 p-0 m-0">.</p>
+                <p class="m-0 pt-2 p-0">Published</p>
+              </li>
+            </ul>
+
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo quos
+              magnam dolores! Repudiandae ipsam totam atque repellat saepe vero
+              dolorum m magnam?
+            </p>
+
+            <div class="border-bottom border-1 my-2 border-secondary"></div>
+
+            <ul
+              class="d-flex align-items-center justify-content-between ul-list"
+            >
+              <li class="p-0">
+                <p class="p-0">Price</p>
+                <p class="p-0">$45.00</p>
+              </li>
+
+              <li class="p-0">
+                <p class="p-0">Sales</p>
+                <p class="p-0">$45.00</p>
+              </li>
+
+              <li class="p-0">
+                <p class="p-0">Revenue</p>
+                <p class="p-0">$45.00</p>
+              </li>
+            </ul>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <!-- table card -->
+    <div id="table" class="d-none">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">
+              <input
+                class="form-check-input mt-0"
+                type="checkbox"
+                value=""
+                aria-label="Checkbox for following text input"
+              />
+            </th>
+            <th scope="col">Product</th>
+            <th scope="col">Status</th>
+            <th scope="col">Price</th>
+            <th scope="col">Sales</th>
+            <th scope="col">Revenue</th>
+          </tr>
+        </thead>
+        <tbody id="tableCard"></tbody>
+      </table>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <input
+                type="text"
+                class="col-6"
+                id="urlImg"
+                placeholder="Img Url . . ."
+              />
+              <input
+                type="text"
+                class="col-6"
+                id="bookTitle"
+                placeholder="Book Title . . ."
+              />
+
+              <input
+                type="text"
+                class="col-6"
+                id="price"
+                placeholder="Price . . ."
+              />
+              <input
+                type="text"
+                class="col-6"
+                id="sales"
+                placeholder="Sales . . ."
+              />
+
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                id="status"
+              >
+                <option>Published</option>
+                <option>Draft</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="addDataNewBook()"
+            >
+              Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ======================================================================== -->
+
+    <!-- bootstrap src -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+      integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- js src -->
+    <script src="./js/data.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

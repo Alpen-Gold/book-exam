@@ -1,0 +1,98 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.all-button {
+  background-color: gold;
+  border-radius: 6px;
+  padding: 8px 15px;
+  border: none;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid black;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+.loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border-left: 4px solid #ff3d00;
+  border-bottom: 4px solid transparent;
+  animation: rotation 0.5s linear infinite reverse;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.header-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.book-foto-product {
+  object-fit: cover;
+  width: 100%;
+  height: 300px;
+}
+
+.book-foto-product-table {
+  object-fit: cover;
+  width: 70px;
+  height: 70px;
+}
+
+.ul-list {
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+.ul-list li {
+  padding: 0;
+  margin: 0;
+}
+
+#typeBook {
+  background-color: red;
+  border-radius: 5px !important;
+  margin: 0 !important;
+  padding: 8px 15px;
+}
+
+#typeBookgreen {
+  background-color: green;
+  border-radius: 5px !important;
+  margin: 0 !important;
+  padding: 8px 15px;
+}
+
+/*# sourceMappingURL=style.css.map */
